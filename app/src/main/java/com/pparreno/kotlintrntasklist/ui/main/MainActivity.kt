@@ -1,12 +1,11 @@
-package com.pparreno.kotlintrntasklist
+package com.pparreno.kotlintrntasklist.ui.main
 
 import android.os.Bundle
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayout
 import androidx.viewpager.widget.ViewPager
 import androidx.appcompat.app.AppCompatActivity
-import com.pparreno.kotlintrntasklist.ui.main.SectionsPagerAdapter
+import com.pparreno.kotlintrntasklist.R
 
 class MainActivity : AppCompatActivity() {
 

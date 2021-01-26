@@ -2,7 +2,7 @@
 <resources>
 
     <string name="sample_text_bacon_ipsum">
-        Bacon ipsum dolor amet et tongue biltong, strip steak chicken pork belly pariatur veniam. Buffalo leberkas officia, pig ribeye pariatur beef ribs pork chop do occaecat. Ipsum shoulder brisket, reprehenderit frankfurter sunt pork belly dolore doner quis beef tail exercitation aute ea. Pariatur drumstick salami, buffalo short loin landjaeger cow tongue alcatra meatball strip steak veniam. Fugiat sint et tongue.<br/><br/>Ball tip cupidatat strip steak ribeye sed corned beef venison spare ribs fatback veniam eu quis labore jowl pork loin. Nostrud excepteur ea, ground round tri-tip turducken ribeye beef ribs ut fugiat porchetta picanha magna. Ut nisi adipisicing, proident cillum deserunt flank esse velit minim chislic kielbasa tail anim hamburger. Tenderloin tempor beef ball tip, magna sint in. Laboris in veniam ball tip adipisicing, in ad pork chop. Laboris t-bone ea porchetta. Commodo ball tip dolor capicola cupim pig leberkas alcatra corned beef ipsum strip steak meatloaf short loin.<br/><br/> Does your lorem ipsum text long for something a little meatier? Give our generator a try… it’s tasty!
+        Bacon ipsum dolor amet et tongue biltong, strip steak chicken pork belly pariatur veniam. Buffalo leberkas officia, pig ribeye pariatur beef ribs pork chop do occaecat. Ipsum shoulder brisket, reprehenderit frankfurter sunt pork belly dolore doner quis beef tail exercitation aute ea. Pariatur drumstick salami, buffalo short loin landjaeger cow tongue alcatra meatball strip steak veniam. Fugiat sint et tongue.<br /><br />Ball tip cupidatat strip steak ribeye sed corned beef venison spare ribs fatback veniam eu quis labore jowl pork loin. Nostrud excepteur ea, ground round tri-tip turducken ribeye beef ribs ut fugiat porchetta picanha magna. Ut nisi adipisicing, proident cillum deserunt flank esse velit minim chislic kielbasa tail anim hamburger. Tenderloin tempor beef ball tip, magna sint in. Laboris in veniam ball tip adipisicing, in ad pork chop. Laboris t-bone ea porchetta. Commodo ball tip dolor capicola cupim pig leberkas alcatra corned beef ipsum strip steak meatloaf short loin.<br /><br /> Does your lorem ipsum text long for something a little meatier? Give our generator a try… it’s tasty!
     </string>
 
     <string name="app_name">KotlinTRN Task List</string>
@@ -15,4 +15,7 @@
     <string name="content_desc_important_icon">Important Icon</string>
     <string name="sample_date_string">2 days ago</string>
     <string name="sample_title_string">Title Text</string>
+    <string name="compose_new_note">Compose New Note:</string>
+    <string name="note_title">Note Title</string>
+    <string name="content_hint">Type Content Here</string>
 </resources>
