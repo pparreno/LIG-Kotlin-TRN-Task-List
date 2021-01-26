@@ -18,4 +18,5 @@
     <string name="compose_new_note">Compose New Note:</string>
     <string name="note_title">Note Title</string>
     <string name="content_hint">Type Content Here</string>
+    <string name="save">Save</string>
 </resources>
