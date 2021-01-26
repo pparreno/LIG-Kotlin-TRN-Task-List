@@ -1,11 +1,13 @@
 package com.pparreno.kotlintrntasklist.ui.main
 
+import android.content.Intent
 import android.os.Bundle
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.tabs.TabLayout
 import androidx.viewpager.widget.ViewPager
 import androidx.appcompat.app.AppCompatActivity
 import com.pparreno.kotlintrntasklist.R
+import com.pparreno.kotlintrntasklist.ui.compose.ComposeNoteActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,8 +22,8 @@ class MainActivity : AppCompatActivity() {
         val fab: FloatingActionButton = findViewById(R.id.fab)
 
         fab.setOnClickListener { view ->
-           /* Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()*/
+            val intent = Intent(this@MainActivity, ComposeNoteActivity::class.java)
+            startActivity(intent)
         }
     }
 }
