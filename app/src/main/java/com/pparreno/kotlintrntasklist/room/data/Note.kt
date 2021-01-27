@@ -5,10 +5,12 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class Note(
-    @PrimaryKey var id: Int,
     var dateCreated: Long,
     var dateUpdated: Long,
     var dateDeleted: Long,
     var title: String,
     var content: String
-)
+) {
+    @PrimaryKey(autoGenerate = true)
+    var id: Int = 0
+}

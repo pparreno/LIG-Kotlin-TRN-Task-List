@@ -1,6 +1,7 @@
 package com.pparreno.kotlintrntasklist.room.dao
 
 import androidx.room.Dao
+import androidx.room.Insert
 import androidx.room.Query
 import com.pparreno.kotlintrntasklist.room.data.Note
 
@@ -8,4 +9,7 @@ import com.pparreno.kotlintrntasklist.room.data.Note
 interface NoteDao {
     @Query("SELECT * FROM note")
     fun getAll(): List<Note>
+
+    @Insert
+    fun insertNote(note : Note)
 }
