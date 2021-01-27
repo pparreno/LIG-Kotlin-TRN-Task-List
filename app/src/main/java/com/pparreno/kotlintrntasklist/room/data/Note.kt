@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 data class Note(
     var dateCreated: Long,
     var dateUpdated: Long,
-    var dateDeleted: Long,
+    var dateDeleted: Long?,
     var title: String,
     var content: String
 ) {
