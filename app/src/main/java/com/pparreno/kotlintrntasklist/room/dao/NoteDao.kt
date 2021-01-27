@@ -8,8 +8,8 @@ import com.pparreno.kotlintrntasklist.room.data.Note
 @Dao
 interface NoteDao {
     @Query("SELECT * FROM note")
-    fun getAll(): List<Note>
+    suspend fun getAll(): List<Note>
 
     @Insert
-    fun insertNote(note : Note)
+    suspend fun insertNote(note : Note)
 }
