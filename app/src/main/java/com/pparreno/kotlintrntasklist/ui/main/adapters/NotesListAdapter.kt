@@ -8,19 +8,19 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.pparreno.kotlintrntasklist.databinding.NoteRecyclerItemBinding
-import com.pparreno.kotlintrntasklist.room.coverters.Converters
 import com.pparreno.kotlintrntasklist.room.data.Note
+import org.ocpsoft.prettytime.PrettyTime
 import java.util.*
 
-class NotesListAdapter(var activity : Activity, var list: List<Note>) : RecyclerView.Adapter<NotesListAdapter.NotesListItemViewHolder>() {
+class NotesListAdapter(var activity: Activity, var list: List<Note>) : RecyclerView.Adapter<NotesListAdapter.NotesListItemViewHolder>() {
 
     lateinit var viewBinding : NoteRecyclerItemBinding
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NotesListItemViewHolder {
         viewBinding = NoteRecyclerItemBinding.inflate(
-            LayoutInflater.from(parent.context),
-            parent,
-            false
+                LayoutInflater.from(parent.context),
+                parent,
+                false
         )
         return NotesListItemViewHolder(viewBinding.root, viewBinding)
     }
@@ -29,7 +29,8 @@ class NotesListAdapter(var activity : Activity, var list: List<Note>) : Recycler
         val note = list.get(position)
         holder.titleText.text = note.title
         holder.contentText.text = note.content
-        holder.dateText = Date(note.dateCreated)
+        val p = PrettyTime()
+        holder.dateText.text = p.format(Date(note.dateCreated))
     }
 
     override fun getItemCount(): Int {
@@ -43,7 +44,7 @@ class NotesListAdapter(var activity : Activity, var list: List<Note>) : Recycler
         lateinit var favoriteIcon : ImageView
         lateinit var importantIcon : ImageView
 
-        constructor(itemView: View, viewBinding : NoteRecyclerItemBinding) : this(itemView) {
+        constructor(itemView: View, viewBinding: NoteRecyclerItemBinding) : this(itemView) {
             titleText = viewBinding.titleText
             contentText = viewBinding.contentText
             dateText = viewBinding.dateText
