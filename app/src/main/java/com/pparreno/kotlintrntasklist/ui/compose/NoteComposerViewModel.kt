@@ -15,15 +15,12 @@ class NoteComposerViewModel @ViewModelInject constructor(
     private val database : AppDatabase,
     @Assisted private val savedStateHandle: SavedStateHandle
 ): ViewModel() {
-    var isProcessing: MutableLiveData<Boolean> = MutableLiveData(false)
     var isProcessingComplete: MutableLiveData<Boolean> = MutableLiveData(false)
 
     fun insertNewNote(note: Note) {
         CoroutineScope(IO).launch {
-            isProcessing.value = true
             database.noteDao().insertNote(note)
-            isProcessing.value = false
-            isProcessingComplete.value = true
+            isProcessingComplete.postValue(true)
         }
     }
 

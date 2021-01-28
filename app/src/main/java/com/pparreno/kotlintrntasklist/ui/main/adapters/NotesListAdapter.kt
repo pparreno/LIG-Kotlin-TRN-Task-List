@@ -30,7 +30,7 @@ class NotesListAdapter(var activity: Activity, var list: List<Note>) : RecyclerV
         holder.titleText.text = note.title
         holder.contentText.text = note.content
         val p = PrettyTime()
-        holder.dateText.text = p.format(Date(note.dateCreated))
+        holder.dateText.text = p.format(note.dateCreated)
     }
 
     override fun getItemCount(): Int {

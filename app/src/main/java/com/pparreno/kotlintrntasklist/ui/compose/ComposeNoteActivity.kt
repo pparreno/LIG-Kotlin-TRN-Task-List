@@ -10,6 +10,7 @@ import androidx.activity.viewModels
 import com.pparreno.kotlintrntasklist.R
 import com.pparreno.kotlintrntasklist.databinding.ActivityComposeNoteBinding
 import com.pparreno.kotlintrntasklist.room.data.Note
+import com.pparreno.kotlintrntasklist.ui.views.LoadingDialog
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 
@@ -19,6 +20,7 @@ class ComposeNoteActivity : AppCompatActivity(), ValidationStateListener {
     lateinit var titleField: EditText
     lateinit var contentField: EditText
     lateinit var binding: ActivityComposeNoteBinding
+    lateinit var loadingDialog: LoadingDialog
 
     private val viewModel: NoteComposerViewModel by viewModels()
 
@@ -29,16 +31,19 @@ class ComposeNoteActivity : AppCompatActivity(), ValidationStateListener {
 
         titleField = binding.titleInputText
         contentField = binding.contentInputText
+
+        loadingDialog = LoadingDialog(this)
     }
 
 
     override fun onStart() {
         super.onStart()
-        viewModel.isProcessing.observe(this, {
-
-        })
-        viewModel.isProcessing.observe(this, {
-
+        viewModel.isProcessingComplete.observe(this, {
+            Log.d(TAG, "viewModel.isProcessingComplete: $it")
+            if (it) {
+                loadingDialog.dismissDialog()
+                this@ComposeNoteActivity.finish()
+            }
         })
     }
 
@@ -49,6 +54,7 @@ class ComposeNoteActivity : AppCompatActivity(), ValidationStateListener {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        loadingDialog.startLoadingDialog()
         if (item.itemId == R.id.menu_item_save) {
             if (NoteComposerViewModel.FieldValidator.validateFieldTexts(
                     titleField.text.toString(),
@@ -59,6 +65,8 @@ class ComposeNoteActivity : AppCompatActivity(), ValidationStateListener {
                 val note = noteObjectFromFields()
                 viewModel.insertNewNote(note)
                 Log.d(TAG, "inserted note with room")
+            } else {
+                loadingDialog.dismissDialog()
             }
         }
         return true
