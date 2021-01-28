@@ -12,16 +12,15 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class NotesListViewModel @ViewModelInject constructor(
-    private val database : AppDatabase,
+    private val database: AppDatabase,
     @Assisted private val savedStateHandle: SavedStateHandle
-    ) : ViewModel() {
+) : ViewModel() {
+    var notesLiveData: MutableLiveData<List<Note>> = MutableLiveData()
 
-    var notesLiveData : MutableLiveData<List<Note>> = MutableLiveData()
-
-        fun fetchNotes(){
-            CoroutineScope(Dispatchers.IO).launch {
-                val notes = database.noteDao().getAll()
-                notesLiveData.postValue(notes)
-            }
+    fun fetchNotes() {
+        CoroutineScope(Dispatchers.IO).launch {
+            val notes = database.noteDao().getAll()
+            notesLiveData.postValue(notes)
         }
+    }
 }

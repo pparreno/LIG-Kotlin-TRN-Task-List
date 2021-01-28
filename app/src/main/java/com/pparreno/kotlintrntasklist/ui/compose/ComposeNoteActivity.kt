@@ -13,15 +13,14 @@ import com.pparreno.kotlintrntasklist.room.data.Note
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 
+
 @AndroidEntryPoint
 class ComposeNoteActivity : AppCompatActivity(), ValidationStateListener {
+    lateinit var titleField: EditText
+    lateinit var contentField: EditText
+    lateinit var binding: ActivityComposeNoteBinding
 
-    lateinit var titleField : EditText
-    lateinit var contentField : EditText
-
-    lateinit var binding :  ActivityComposeNoteBinding
-
-    val viewModel : NoteComposerViewModel by viewModels()
+    private val viewModel: NoteComposerViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,10 +38,13 @@ class ComposeNoteActivity : AppCompatActivity(), ValidationStateListener {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if(item.itemId == R.id.menu_item_save)
-        {
-            if(NoteComposerViewModel.FieldValidator.validateFieldTexts(titleField.text.toString(), contentField.text.toString(), this))
-            {
+        if (item.itemId == R.id.menu_item_save) {
+            if (NoteComposerViewModel.FieldValidator.validateFieldTexts(
+                    titleField.text.toString(),
+                    contentField.text.toString(),
+                    this
+                )
+            ) {
                 val note = noteObjectFromFields()
                 viewModel.insertNewNote(note)
                 Log.d(TAG, "inserted note with room")
@@ -53,23 +55,26 @@ class ComposeNoteActivity : AppCompatActivity(), ValidationStateListener {
 
     private fun noteObjectFromFields(): Note {
         val curDate = Date().time
-        return Note(curDate, curDate, null, titleField.text.toString(), contentField.text.toString())
+        return Note(
+            curDate,
+            curDate,
+            null,
+            titleField.text.toString(),
+            contentField.text.toString()
+        )
     }
 
     override fun onPostFieldsValidation(validTitle: Boolean, validContent: Boolean) {
-      if(!validTitle)
-      {
-          titleField.error = "Title must not be empty!"
-      }
+        if (!validTitle) {
+            titleField.error = "Title must not be empty!"
+        }
 
-        if(!validContent)
-        {
+        if (!validContent) {
             contentField.error = "Content must not be empty!"
         }
     }
 
     companion object {
-        const val TAG : String = "ComposeNoteActivitys"
+        const val TAG: String = "ComposeNoteActivitys"
     }
-
 }

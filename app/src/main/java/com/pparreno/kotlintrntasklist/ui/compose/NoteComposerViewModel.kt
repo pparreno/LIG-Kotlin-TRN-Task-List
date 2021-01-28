@@ -15,7 +15,6 @@ class NoteComposerViewModel @ViewModelInject constructor(
     private val database : AppDatabase,
     @Assisted private val savedStateHandle: SavedStateHandle
 ): ViewModel() {
-
     var isProcessing: MutableLiveData<Boolean> = MutableLiveData(false)
 
     fun insertNewNote(note: Note) {
@@ -24,16 +23,13 @@ class NoteComposerViewModel @ViewModelInject constructor(
         }
     }
 
-
     class FieldValidator {
-
         companion object {
             fun validateFieldTexts(
                 titleString: String,
                 contentString: String,
                 listener: ValidationStateListener
             ): Boolean {
-
                 val isValidTitle: Boolean = titleString.isNotEmpty()
                 val isValidContent: Boolean = contentString.isNotEmpty()
 
@@ -42,6 +38,5 @@ class NoteComposerViewModel @ViewModelInject constructor(
                 return isValidTitle && isValidContent
             }
         }
-
     }
 }

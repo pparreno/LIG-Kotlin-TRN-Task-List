@@ -10,7 +10,6 @@ import com.pparreno.kotlintrntasklist.room.data.Note
 @Database(entities = [Note::class], version = 1)
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
-
     abstract fun noteDao(): NoteDao
 
     companion object {

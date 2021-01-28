@@ -15,7 +15,6 @@ import com.pparreno.kotlintrntasklist.ui.main.viewmodels.PageViewModel
  * A placeholder fragment containing a simple view.
  */
 class PlaceholderFragment : Fragment() {
-
     private lateinit var pageViewModel: PageViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
