@@ -1,4 +1,4 @@
-package com.pparreno.kotlintrntasklist.ui.main
+package com.pparreno.kotlintrntasklist.ui.main.viewmodels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

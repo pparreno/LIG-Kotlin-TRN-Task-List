@@ -1,4 +1,4 @@
-package com.pparreno.kotlintrntasklist.ui.main
+package com.pparreno.kotlintrntasklist.ui.main.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.pparreno.kotlintrntasklist.R
+import com.pparreno.kotlintrntasklist.ui.main.viewmodels.PageViewModel
 
 /**
  * A placeholder fragment containing a simple view.
@@ -30,7 +31,7 @@ class PlaceholderFragment : Fragment() {
     ): View? {
         val root = inflater.inflate(R.layout.fragment_main, container, false)
         val textView: TextView = root.findViewById(R.id.section_label)
-        pageViewModel.text.observe(this, Observer<String> {
+        pageViewModel.text.observe(viewLifecycleOwner, Observer<String> {
             textView.text = it
         })
         return root
