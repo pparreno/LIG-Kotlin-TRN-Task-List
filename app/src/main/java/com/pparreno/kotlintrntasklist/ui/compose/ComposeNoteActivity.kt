@@ -54,13 +54,15 @@ class ComposeNoteActivity : AppCompatActivity(), ValidationStateListener {
     }
 
     private fun noteObjectFromFields(): Note {
-        val curDate = Date().time
+        val curDate = Date()
         return Note(
             curDate,
             curDate,
             null,
             titleField.text.toString(),
-            contentField.text.toString()
+            contentField.text.toString(),
+            isImportant = false,
+            isFavorite = false
         )
     }
 

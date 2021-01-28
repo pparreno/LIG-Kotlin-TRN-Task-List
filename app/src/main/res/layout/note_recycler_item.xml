@@ -14,7 +14,7 @@
         android:contentDescription="@string/content_desc_favorite_icon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_favorite" />
+        app:srcCompat="@drawable/ic_favorite_inactive" />
 
     <ImageView
         android:id="@+id/important_icon"
@@ -24,7 +24,7 @@
         android:contentDescription="@string/content_desc_important_icon"
         app:layout_constraintEnd_toStartOf="@id/favorite_icon"
         app:layout_constraintTop_toTopOf="@id/favorite_icon"
-        app:srcCompat="@drawable/ic_label_important" />
+        app:srcCompat="@drawable/ic_label_important_outline_inactive" />
 
     <TextView
         android:id="@+id/title_text"
