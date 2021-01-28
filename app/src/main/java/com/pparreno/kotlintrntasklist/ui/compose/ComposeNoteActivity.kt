@@ -31,6 +31,17 @@ class ComposeNoteActivity : AppCompatActivity(), ValidationStateListener {
         contentField = binding.contentInputText
     }
 
+
+    override fun onStart() {
+        super.onStart()
+        viewModel.isProcessing.observe(this, {
+
+        })
+        viewModel.isProcessing.observe(this, {
+
+        })
+    }
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val inflater = menuInflater
         inflater.inflate(R.menu.compose_note_menu, menu)
