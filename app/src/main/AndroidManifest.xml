@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KotlinTRNTaskList">
         <activity
-            android:name=".ui.compose.ComposeNoteActivity"
+            android:name=".ui.notes.compose.ComposeNoteActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.main.MainActivity"

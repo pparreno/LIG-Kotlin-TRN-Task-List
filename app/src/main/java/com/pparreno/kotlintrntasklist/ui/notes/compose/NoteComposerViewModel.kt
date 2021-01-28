@@ -1,4 +1,4 @@
-package com.pparreno.kotlintrntasklist.ui.compose
+package com.pparreno.kotlintrntasklist.ui.notes.compose
 
 import androidx.hilt.Assisted
 import androidx.hilt.lifecycle.ViewModelInject

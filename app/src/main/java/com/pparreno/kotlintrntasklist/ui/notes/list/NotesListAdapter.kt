@@ -1,4 +1,4 @@
-package com.pparreno.kotlintrntasklist.ui.main.adapters
+package com.pparreno.kotlintrntasklist.ui.notes.list
 
 import android.app.Activity
 import android.view.LayoutInflater
@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.pparreno.kotlintrntasklist.databinding.NoteRecyclerItemBinding
 import com.pparreno.kotlintrntasklist.room.data.Note
 import org.ocpsoft.prettytime.PrettyTime
-import java.util.*
 
 class NotesListAdapter(var activity: Activity, var list: List<Note>) : RecyclerView.Adapter<NotesListAdapter.NotesListItemViewHolder>() {
 

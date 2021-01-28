@@ -7,7 +7,7 @@ import androidx.viewpager.widget.ViewPager
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.tabs.TabLayout
 import com.pparreno.kotlintrntasklist.databinding.ActivityMainBinding
-import com.pparreno.kotlintrntasklist.ui.compose.ComposeNoteActivity
+import com.pparreno.kotlintrntasklist.ui.notes.compose.ComposeNoteActivity
 import com.pparreno.kotlintrntasklist.ui.main.adapters.SectionsPagerAdapter
 import dagger.hilt.android.AndroidEntryPoint
 

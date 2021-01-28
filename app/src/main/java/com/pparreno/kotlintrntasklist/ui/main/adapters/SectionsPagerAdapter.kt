@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.pparreno.kotlintrntasklist.R
-import com.pparreno.kotlintrntasklist.ui.main.fragments.NotesListFragment
+import com.pparreno.kotlintrntasklist.ui.notes.list.NotesListFragment
 import com.pparreno.kotlintrntasklist.ui.main.fragments.PlaceholderFragment
 
 private val TAB_TITLES = arrayOf(

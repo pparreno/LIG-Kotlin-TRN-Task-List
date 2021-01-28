@@ -1,4 +1,4 @@
-package com.pparreno.kotlintrntasklist.ui.compose
+package com.pparreno.kotlintrntasklist.ui.notes.compose
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

@@ -1,4 +1,4 @@
-package com.pparreno.kotlintrntasklist.ui.main.fragments
+package com.pparreno.kotlintrntasklist.ui.notes.list
 
 import android.os.Bundle
 import android.util.Log
@@ -11,8 +11,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.pparreno.kotlintrntasklist.R
 import com.pparreno.kotlintrntasklist.databinding.FragmentRecyclerlistBinding
-import com.pparreno.kotlintrntasklist.ui.main.adapters.NotesListAdapter
-import com.pparreno.kotlintrntasklist.ui.main.viewmodels.NotesListViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
