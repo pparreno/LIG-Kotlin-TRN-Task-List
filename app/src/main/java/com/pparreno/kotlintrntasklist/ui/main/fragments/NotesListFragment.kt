@@ -7,14 +7,19 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.pparreno.kotlintrntasklist.R
 import com.pparreno.kotlintrntasklist.databinding.FragmentRecyclerlistBinding
+import com.pparreno.kotlintrntasklist.ui.main.adapters.NotesListAdapter
 import com.pparreno.kotlintrntasklist.ui.main.viewmodels.NotesListViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class NotesListFragment: Fragment() {
     lateinit var viewBinding : FragmentRecyclerlistBinding
+    lateinit var recyclerView : RecyclerView
+    lateinit var notesAdapter : NotesListAdapter
     val viewModel : NotesListViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,7 +32,7 @@ class NotesListFragment: Fragment() {
     ): View? {
         val root = inflater.inflate(R.layout.fragment_recyclerlist, container, false)
         viewBinding = FragmentRecyclerlistBinding.bind(root)
-        viewBinding.recyclerView
+        recyclerView = viewBinding.recyclerView
         return root
     }
 
@@ -35,8 +40,14 @@ class NotesListFragment: Fragment() {
         super.onStart()
         this.viewModel.notesLiveData.observe(this, {
             Log.d(TAG, "Size of notes list: " + it.size)
+            notesAdapter.list = it
+            notesAdapter.notifyDataSetChanged()
         })
         this.viewModel.fetchNotes()
+        // finally, data bind the recycler view with adapter
+        notesAdapter = NotesListAdapter(requireActivity(), ArrayList())
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        recyclerView.adapter = notesAdapter
     }
 
     companion object {
