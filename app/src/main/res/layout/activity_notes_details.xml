@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".ui.notes.details.NotesDetailsActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp">
+
+            <ImageView
+                android:id="@+id/favorite_icon"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:contentDescription="@string/content_desc_favorite_icon"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_favorite_inactive" />
+
+            <ImageView
+                android:id="@+id/important_icon"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginEnd="15dp"
+                android:contentDescription="@string/content_desc_important_icon"
+                app:layout_constraintEnd_toStartOf="@id/favorite_icon"
+                app:layout_constraintTop_toTopOf="@id/favorite_icon"
+                app:srcCompat="@drawable/ic_label_important_outline_inactive" />
+
+            <TextView
+                android:id="@+id/title_text"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginEnd="25dp"
+                android:gravity="center_vertical"
+                android:text="@string/sample_title_string"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/favorite_icon"
+                app:layout_constraintEnd_toStartOf="@id/important_icon"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/date_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/sample_date_string"
+                app:layout_constraintStart_toStartOf="@id/title_text"
+                app:layout_constraintTop_toBottomOf="@id/title_text"
+                tools:layout_editor_absoluteY="40dp" />
+
+            <TextView
+                android:id="@+id/content_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="@string/sample_text_bacon_ipsum"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/date_text" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</LinearLayout>

@@ -14,6 +14,9 @@
             android:name=".ui.notes.compose.ComposeNoteActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".ui.notes.details.NotesDetailsActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".ui.main.MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
