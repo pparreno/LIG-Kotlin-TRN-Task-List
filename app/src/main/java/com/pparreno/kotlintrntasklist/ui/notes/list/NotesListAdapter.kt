@@ -1,6 +1,7 @@
 package com.pparreno.kotlintrntasklist.ui.notes.list
 
 import android.app.Activity
+import android.content.Intent
 import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.pparreno.kotlintrntasklist.R
 import com.pparreno.kotlintrntasklist.databinding.NoteRecyclerItemBinding
 import com.pparreno.kotlintrntasklist.room.data.Note
+import com.pparreno.kotlintrntasklist.ui.notes.details.NotesDetailsActivity
 import org.ocpsoft.prettytime.PrettyTime
 
 class NotesListAdapter(var activity: Activity, var list: List<Note>) : RecyclerView.Adapter<NotesListAdapter.NotesListItemViewHolder>() {
@@ -28,7 +30,7 @@ class NotesListAdapter(var activity: Activity, var list: List<Note>) : RecyclerV
     }
 
     override fun onBindViewHolder(holder: NotesListItemViewHolder, position: Int) {
-        val note = list.get(position)
+        val note = list[position]
         holder.titleText.text = note.title
         holder.contentText.text = note.content
         val p = PrettyTime()
@@ -38,6 +40,12 @@ class NotesListAdapter(var activity: Activity, var list: List<Note>) : RecyclerV
             holder.itemView.rootView.background = ColorDrawable(ContextCompat.getColor(activity, R.color.white))
         } else {
             holder.itemView.rootView.background = ColorDrawable(ContextCompat.getColor(activity, R.color.light_gray))
+        }
+        //Bind On Click Listener
+        holder.itemView.setOnClickListener {
+            val intent = Intent(activity, NotesDetailsActivity::class.java)
+            intent.putExtra(NotesDetailsActivity.KEY_EXTRA_NOTE, note)
+            activity.startActivity(intent)
         }
     }
 
