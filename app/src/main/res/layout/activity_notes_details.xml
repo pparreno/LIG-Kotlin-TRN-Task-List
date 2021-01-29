@@ -8,8 +8,10 @@
     tools:context=".ui.notes.details.NotesDetailsActivity">
 
     <ScrollView
+        android:id="@+id/viewing_scrollview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:visibility="visible">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/viewing_group"
@@ -17,7 +19,7 @@
             android:layout_height="wrap_content"
             android:padding="15dp">
 
-            <include layout="@layout/merge_layout_note_view_header"/>
+            <include layout="@layout/merge_layout_note_view_header" />
 
             <TextView
                 android:id="@+id/content_text"
@@ -31,6 +33,18 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+
+    </ScrollView>
+
+    <ScrollView
+        android:id="@+id/editing_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <include
+            android:id="@+id/included_composer_layout"
+            layout="@layout/layout_note_compose" />
     </ScrollView>
 
 </LinearLayout>

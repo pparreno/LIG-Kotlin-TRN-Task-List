@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.pparreno.kotlintrntasklist.R
 import com.pparreno.kotlintrntasklist.constants.ComposerState
@@ -49,6 +50,8 @@ class NotesDetailsActivity : AppCompatActivity() {
                 R.id.menu_item_edit -> {
                     Log.d(TAG, "Edit option selected")
                     composerState = ComposerState.COMPOSING_STATE
+                    viewBinding.editingScrollview.visibility = View.VISIBLE
+                    viewBinding.viewingScrollview.visibility = View.GONE
                     invalidateOptionsMenu()
                 }
             }
@@ -57,6 +60,9 @@ class NotesDetailsActivity : AppCompatActivity() {
             {
                 Log.d(TAG, "Save option selected")
                 composerState = ComposerState.VIEWING_STATE
+
+                viewBinding.editingScrollview.visibility = View.GONE
+                viewBinding.viewingScrollview.visibility = View.VISIBLE
                 invalidateOptionsMenu()
             }
         }
@@ -69,6 +75,9 @@ class NotesDetailsActivity : AppCompatActivity() {
         viewBinding.contentText.text = note.content
         val p = PrettyTime()
         mergeViewBinding.dateText.text = p.format(note.dateCreated)
+        viewBinding.includedComposerLayout.composeLabel.text = resources.getString(R.string.edit_note)
+        viewBinding.includedComposerLayout.titleInputText.setText(note.title)
+        viewBinding.includedComposerLayout.contentInputText.setText(note.content)
     }
 
     companion object {
