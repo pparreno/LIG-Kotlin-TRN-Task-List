@@ -1,7 +1,9 @@
 package com.pparreno.kotlintrntasklist.ui.notes.details
 
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.pparreno.kotlintrntasklist.R
 import com.pparreno.kotlintrntasklist.constants.ComposerState
@@ -33,6 +35,32 @@ class NotesDetailsActivity : AppCompatActivity() {
         return true
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(composerState == ComposerState.VIEWING_STATE)
+        {
+            when(item.itemId)
+            {
+                R.id.menu_item_delete -> {
+                   Log.d(TAG, "Delete option selected")
+                }
+                R.id.menu_item_edit -> {
+                    Log.d(TAG, "Edit option selected")
+                    composerState = ComposerState.COMPOSING_STATE
+                    invalidateOptionsMenu()
+                }
+            }
+        } else {
+            if(item.itemId == R.id.menu_item_save)
+            {
+                Log.d(TAG, "Save option selected")
+                composerState = ComposerState.VIEWING_STATE
+                invalidateOptionsMenu()
+            }
+        }
+
+        return true
+    }
+
     private fun setViewValues(note : Note) {
         viewBinding.titleText.text = note.title
         viewBinding.contentText.text = note.content
@@ -42,5 +70,6 @@ class NotesDetailsActivity : AppCompatActivity() {
 
     companion object {
         const val KEY_EXTRA_NOTE: String = "KEY_EXTRA_NOTE.NotesDetailsActivity"
+        const val TAG: String = "NotesDetailsActivity"
     }
 }
