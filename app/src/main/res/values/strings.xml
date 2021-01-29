@@ -19,4 +19,6 @@
     <string name="note_title">Note Title</string>
     <string name="content_hint">Type Content Here</string>
     <string name="save">Save</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
 </resources>
