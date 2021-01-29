@@ -1,13 +1,19 @@
 package com.pparreno.kotlintrntasklist.ui.notes.details
 
 import android.os.Bundle
+import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
+import com.pparreno.kotlintrntasklist.R
+import com.pparreno.kotlintrntasklist.constants.ComposerState
 import com.pparreno.kotlintrntasklist.databinding.ActivityNotesDetailsBinding
 import com.pparreno.kotlintrntasklist.room.data.Note
 import org.ocpsoft.prettytime.PrettyTime
 
 class NotesDetailsActivity : AppCompatActivity() {
     lateinit var viewBinding: ActivityNotesDetailsBinding
+
+    @ComposerState.ComposerStateDef
+    var composerState : String = ComposerState.VIEWING_STATE
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -16,6 +22,15 @@ class NotesDetailsActivity : AppCompatActivity() {
 
         val note = intent.getParcelableExtra<Note>(KEY_EXTRA_NOTE)
         note?.let { setViewValues(it) }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater = menuInflater
+        if(composerState == ComposerState.VIEWING_STATE)
+            inflater.inflate(R.menu.note_details_menu, menu)
+        else
+            inflater.inflate(R.menu.note_dteails_edit_menu, menu)
+        return true
     }
 
     private fun setViewValues(note : Note) {
