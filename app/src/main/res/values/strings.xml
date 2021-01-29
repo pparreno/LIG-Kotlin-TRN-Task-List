@@ -9,7 +9,6 @@
 
     <string name="favorites">Favorites</string>
     <string name="all">All</string>
-    <string name="important">Important</string>
     <string name="content_desc_compose_note_button">Compose Note Button</string>
     <string name="content_desc_favorite_icon">Favorite icon</string>
     <string name="content_desc_important_icon">Important Icon</string>
@@ -21,4 +20,6 @@
     <string name="save">Save</string>
     <string name="edit">Edit</string>
     <string name="delete">Delete</string>
+    <string name="important">Important</string>
+    <string name="favorite">Favorite</string>
 </resources>

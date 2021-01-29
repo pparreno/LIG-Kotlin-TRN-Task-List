@@ -10,58 +10,12 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        tools:ignore="UselessParent"
         tools:layout_editor_absoluteX="55dp">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="15dp">
-
-            <TextView
-                android:id="@+id/compose_label"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@string/compose_new_note"
-                android:textSize="25sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/title_text_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:hint="@string/note_title"
-                app:layout_constraintTop_toBottomOf="@id/compose_label">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/title_input_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/content_text_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:hint="@string/content_hint"
-                app:layout_constraintTop_toBottomOf="@id/title_text_layout">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/content_input_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="top|start"
-                    android:inputType="textCapSentences|textMultiLine"
-                    android:maxLines="100" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        <include
+            android:id="@+id/included_composer_layout"
+            layout="@layout/layout_note_compose" />
     </ScrollView>
 
 </LinearLayout>

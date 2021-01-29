@@ -8,11 +8,13 @@ import androidx.appcompat.app.AppCompatActivity
 import com.pparreno.kotlintrntasklist.R
 import com.pparreno.kotlintrntasklist.constants.ComposerState
 import com.pparreno.kotlintrntasklist.databinding.ActivityNotesDetailsBinding
+import com.pparreno.kotlintrntasklist.databinding.MergeLayoutNoteViewHeaderBinding
 import com.pparreno.kotlintrntasklist.room.data.Note
 import org.ocpsoft.prettytime.PrettyTime
 
 class NotesDetailsActivity : AppCompatActivity() {
     lateinit var viewBinding: ActivityNotesDetailsBinding
+    lateinit var mergeViewBinding : MergeLayoutNoteViewHeaderBinding
 
     @ComposerState.ComposerStateDef
     var composerState : String = ComposerState.VIEWING_STATE
@@ -20,6 +22,7 @@ class NotesDetailsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewBinding = ActivityNotesDetailsBinding.inflate(layoutInflater)
+        mergeViewBinding = MergeLayoutNoteViewHeaderBinding.bind(viewBinding.root)
         setContentView(viewBinding.root)
 
         val note = intent.getParcelableExtra<Note>(KEY_EXTRA_NOTE)
@@ -62,10 +65,10 @@ class NotesDetailsActivity : AppCompatActivity() {
     }
 
     private fun setViewValues(note : Note) {
-        viewBinding.titleText.text = note.title
+        mergeViewBinding.titleText.text = note.title
         viewBinding.contentText.text = note.content
         val p = PrettyTime()
-        viewBinding.dateText.text = p.format(note.dateCreated)
+        mergeViewBinding.dateText.text = p.format(note.dateCreated)
     }
 
     companion object {

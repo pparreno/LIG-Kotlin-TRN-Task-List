@@ -11,6 +11,7 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.pparreno.kotlintrntasklist.R
+import com.pparreno.kotlintrntasklist.databinding.MergeLayoutNoteViewHeaderBinding
 import com.pparreno.kotlintrntasklist.databinding.NoteRecyclerItemBinding
 import com.pparreno.kotlintrntasklist.room.data.Note
 import com.pparreno.kotlintrntasklist.ui.notes.details.NotesDetailsActivity
@@ -19,6 +20,7 @@ import org.ocpsoft.prettytime.PrettyTime
 class NotesListAdapter(var activity: Activity, var list: List<Note>) : RecyclerView.Adapter<NotesListAdapter.NotesListItemViewHolder>() {
 
     lateinit var viewBinding : NoteRecyclerItemBinding
+    lateinit var viewMergeBinding : MergeLayoutNoteViewHeaderBinding
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NotesListItemViewHolder {
         viewBinding = NoteRecyclerItemBinding.inflate(
@@ -26,7 +28,8 @@ class NotesListAdapter(var activity: Activity, var list: List<Note>) : RecyclerV
                 parent,
                 false
         )
-        return NotesListItemViewHolder(viewBinding.root, viewBinding)
+        viewMergeBinding = MergeLayoutNoteViewHeaderBinding.bind(viewBinding.root)
+        return NotesListItemViewHolder(viewBinding.root, viewBinding, viewMergeBinding)
     }
 
     override fun onBindViewHolder(holder: NotesListItemViewHolder, position: Int) {
@@ -60,12 +63,12 @@ class NotesListAdapter(var activity: Activity, var list: List<Note>) : RecyclerV
         lateinit var favoriteIcon : ImageView
         lateinit var importantIcon : ImageView
 
-        constructor(itemView: View, viewBinding: NoteRecyclerItemBinding) : this(itemView) {
-            titleText = viewBinding.titleText
+        constructor(itemView: View, viewBinding: NoteRecyclerItemBinding, viewMergeBinding: MergeLayoutNoteViewHeaderBinding) : this(itemView) {
+            titleText = viewMergeBinding.titleText
             contentText = viewBinding.contentText
-            dateText = viewBinding.dateText
-            favoriteIcon = viewBinding.favoriteIcon
-            importantIcon = viewBinding.importantIcon
+            dateText = viewMergeBinding.dateText
+            favoriteIcon = viewMergeBinding.favoriteIcon
+            importantIcon = viewMergeBinding.importantIcon
         }
 
     }

@@ -29,8 +29,8 @@ class ComposeNoteActivity : AppCompatActivity(), ValidationStateListener {
         binding = ActivityComposeNoteBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        titleField = binding.titleInputText
-        contentField = binding.contentInputText
+        titleField = binding.includedComposerLayout.titleInputText
+        contentField = binding.includedComposerLayout.contentInputText
 
         loadingDialog = LoadingDialog(this)
     }
