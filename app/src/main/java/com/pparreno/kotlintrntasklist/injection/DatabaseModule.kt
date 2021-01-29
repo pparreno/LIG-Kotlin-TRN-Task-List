@@ -2,7 +2,6 @@ package com.pparreno.kotlintrntasklist.injection
 
 import android.content.Context
 import androidx.room.Room
-import androidx.room.RoomDatabase
 import com.pparreno.kotlintrntasklist.room.database.AppDatabase
 import dagger.Module
 import dagger.Provides
