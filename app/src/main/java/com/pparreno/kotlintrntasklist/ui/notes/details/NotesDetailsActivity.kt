@@ -26,6 +26,6 @@ class NotesDetailsActivity : AppCompatActivity() {
     }
 
     companion object {
-        const val KEY_EXTRA_NOTE: String = "KE_EXTRA_NOTE.NotesDetailsActivity"
+        const val KEY_EXTRA_NOTE: String = "KEY_EXTRA_NOTE.NotesDetailsActivity"
     }
 }
