@@ -36,14 +36,34 @@ class NotesListAdapter(var activity: Activity, var list: List<Note>) : RecyclerV
         val note = list[position]
         holder.titleText.text = note.title
         holder.contentText.text = note.content
+
+        //Set Time Value
         val p = PrettyTime()
         holder.dateText.text = p.format(note.dateCreated)
+
         if (position % 2 == 0)
         {
             holder.itemView.rootView.background = ColorDrawable(ContextCompat.getColor(activity, R.color.white))
         } else {
             holder.itemView.rootView.background = ColorDrawable(ContextCompat.getColor(activity, R.color.light_gray))
         }
+
+        //Set Favorite Icon Appearance
+        if(note.isFavorite)
+        {
+            holder.favoriteIcon.setImageResource(R.drawable.ic_favorite)
+        } else {
+            holder.favoriteIcon.setImageResource(R.drawable.ic_favorite_inactive)
+        }
+
+        //Set Important Icon Appearance
+        if(note.isImportant)
+        {
+            holder.importantIcon.setImageResource(R.drawable.ic_label_important)
+        } else {
+            holder.importantIcon.setImageResource(R.drawable.ic_label_important_outline_inactive)
+        }
+
         //Bind On Click Listener
         holder.itemView.setOnClickListener {
             val intent = Intent(activity, NotesDetailsActivity::class.java)
@@ -70,6 +90,5 @@ class NotesListAdapter(var activity: Activity, var list: List<Note>) : RecyclerV
             favoriteIcon = viewMergeBinding.favoriteIcon
             importantIcon = viewMergeBinding.importantIcon
         }
-
     }
 }

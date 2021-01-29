@@ -19,18 +19,18 @@ import java.util.*
 class ComposeNoteActivity : AppCompatActivity(), ValidationStateListener {
     lateinit var titleField: EditText
     lateinit var contentField: EditText
-    lateinit var binding: ActivityComposeNoteBinding
+    lateinit var viewBinding: ActivityComposeNoteBinding
     lateinit var loadingDialog: LoadingDialog
 
     private val viewModel: NoteComposerViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityComposeNoteBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        viewBinding = ActivityComposeNoteBinding.inflate(layoutInflater)
+        setContentView(viewBinding.root)
 
-        titleField = binding.includedComposerLayout.titleInputText
-        contentField = binding.includedComposerLayout.contentInputText
+        titleField = viewBinding.includedComposerLayout.titleInputText
+        contentField = viewBinding.includedComposerLayout.contentInputText
 
         loadingDialog = LoadingDialog(this)
     }
@@ -80,8 +80,8 @@ class ComposeNoteActivity : AppCompatActivity(), ValidationStateListener {
             null,
             titleField.text.toString(),
             contentField.text.toString(),
-            isImportant = false,
-            isFavorite = false
+            isImportant = viewBinding.includedComposerLayout.noteImportantSwitch.isChecked,
+            isFavorite = viewBinding.includedComposerLayout.noteFavoriteSwitch.isChecked
         )
     }
 
