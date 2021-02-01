@@ -20,7 +20,7 @@ class NotesListViewModel @ViewModelInject constructor(
 ) : ViewModel() {
     var notesLiveData: MutableLiveData<List<Note>> = MutableLiveData()
 
-    val observer = Observer<List<Note>> {
+    private val observer = Observer<List<Note>> {
         notesLiveData.postValue(it)
     }
 

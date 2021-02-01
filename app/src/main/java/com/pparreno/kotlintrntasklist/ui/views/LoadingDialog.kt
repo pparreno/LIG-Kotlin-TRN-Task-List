@@ -5,9 +5,11 @@ import android.app.Activity
 import android.app.AlertDialog
 import android.util.Log
 import android.view.LayoutInflater
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Lifecycle
 import com.pparreno.kotlintrntasklist.R
 
-class LoadingDialog(var activity: Activity) {
+class LoadingDialog(var activity: AppCompatActivity) {
 
     private lateinit var dialog: AlertDialog
 
@@ -19,7 +21,10 @@ class LoadingDialog(var activity: Activity) {
         dialogBuilder.setCancelable(false)
 
         dialog = dialogBuilder.create()
-        dialogBuilder.show()
+        if(activity.lifecycle.currentState.isAtLeast(Lifecycle.State.RESUMED) && activity.window.decorView.rootView.isShown)
+        {
+            dialogBuilder.show()
+        }
     }
 
     fun dismissDialog()
