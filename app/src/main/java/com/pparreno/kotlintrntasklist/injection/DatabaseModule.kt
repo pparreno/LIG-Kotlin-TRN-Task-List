@@ -2,6 +2,7 @@ package com.pparreno.kotlintrntasklist.injection
 
 import android.content.Context
 import androidx.room.Room
+import com.pparreno.kotlintrntasklist.room.dao.NoteDao
 import com.pparreno.kotlintrntasklist.room.database.AppDatabase
 import dagger.Module
 import dagger.Provides
@@ -21,5 +22,10 @@ object DatabaseModule {
             AppDatabase::class.java,
             AppDatabase.dbName
         ).build()
+    }
+
+    @Provides
+    fun provideNoteDao(appDatabase: AppDatabase): NoteDao {
+        return appDatabase.noteDao()
     }
 }
